@@ -239,7 +239,7 @@ h6 {
   font-size: 36px;
 }
 
-.header .btn-getstarted,
+/* .header .btn-getstarted,
 .header .btn-getstarted:focus {
   color: var(--contrast-color);
   background: var(--accent-color);
@@ -248,13 +248,13 @@ h6 {
   margin: 0;
   border-radius: 50px;
   transition: 0.3s;
-}
+} */
 
-.header .btn-getstarted:hover,
+/* .header .btn-getstarted:hover,
 .header .btn-getstarted:focus:hover {
   color: var(--contrast-color);
   background: color-mix(in srgb, var(--accent-color), transparent 15%);
-}
+} */
 
 @media (max-width: 1200px) {
   .header .logo {
@@ -677,6 +677,40 @@ h6 {
   opacity: 1;
   bottom: 15px;
 }
+
+/*--------------------------------------------------------------
+# Chat Button
+--------------------------------------------------------------*/
+.chat-button {
+  position: fixed;
+  visibility: visible;
+  opacity: 1;
+  right: 15px;
+  bottom: 80px;
+  z-index: 99999;
+  background-color: #673AB7;
+  width: 44px;
+  height: 44px;
+  border-radius: 50px;
+  transition: all 0.4s;
+}
+
+.chat-button i {
+  font-size: 24px;
+  color: var(--contrast-color);
+  line-height: 0;
+}
+
+.chat-button:hover {
+  background-color: color-mix(in srgb, #673AB7, transparent 20%);
+  color: var(--contrast-color);
+}
+
+/* .chat-button.active {
+  visibility: visible;
+  opacity: 1;
+  bottom: 15px;
+} */
 
 /*--------------------------------------------------------------
 # Disable aos animation delay on mobile devices
@@ -1348,8 +1382,8 @@ section,
   bottom: -1px;
   height: 100%;
   background-color: var(--surface-color);
-  -webkit-mask: url("../img/team-shape.svg") no-repeat center bottom;
-  mask: url("../img/team-shape.svg") no-repeat center bottom;
+  -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" ...>...</svg>') no-repeat center bottom;
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" ...>...</svg>') no-repeat center bottom;  
   -webkit-mask-size: contain;
   mask-size: contain;
   z-index: 1;
@@ -1637,8 +1671,96 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Starter Section Section
+# New css
 --------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
+.btn-getstarted {
+  border: none;
+  padding: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #2C0C4A;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
 }
+
+.btn-getstarted:hover {
+  transform: translateY(-2px) scale(1.05);
+}
+
+.btn-getstarted:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.cart-icon {
+  font-size: 24px;
+  animation: bounce 2s infinite alternate;
+}
+
+.btn-getstarted:hover .cart-icon {
+  animation: swing 0.8s ease;
+}
+
+@keyframes bounce {
+  0%, 100% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-5px);
+  }
+}
+
+@keyframes swing {
+  0%, 100% {
+      transform: rotate(0deg);
+  }
+  25% {
+      transform: rotate(-10deg);
+  }
+  75% {
+      transform: rotate(10deg);
+  }
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+}
+
+@keyframes ripple {
+  100% {
+      transform: scale(4);
+      opacity: 0;
+  }
+}
+
+/* .btn-getstarted::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+} */
+
+/* .btn-getstarted:hover::before {
+  left: 100%;
+} */
+
+/* @media (max-width: 768px) {
+  .btn-getstarted {
+      padding: 12px 24px;
+      font-size: 16px;
+  }
+  .cart-icon {
+      font-size: 20px;
+  }
+} */
