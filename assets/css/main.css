@@ -263,8 +263,8 @@ h6 {
 
   .header .btn-getstarted {
     order: 2;
-    margin: 0 15px 0 0;
-    padding: 6px 20px;
+    margin: 0 25px 0 0;
+    padding: 6px;
   }
 
   .header .navmenu {
@@ -1790,8 +1790,8 @@ section,
 .cart-sidebar {
   position: fixed;
   top: 0;
-  right: -420px;
-  width: 420px;
+  right: -320px;
+  width: 320px;
   height: 100vh;
   background: white;
   z-index: 2000;

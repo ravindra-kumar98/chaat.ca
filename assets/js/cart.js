@@ -1,6 +1,9 @@
-// Cart functionality
+// =============================
+// Cart functionality (state)
+// =============================
 let cart = [];
 let cartCount = 0;
+const CART_STORAGE_KEY = "chaat_ca_cart_v1";
 
 // DOM elements
 const cartToggle = document.getElementById("cartToggle");
@@ -16,11 +19,47 @@ const checkoutBtn = document.getElementById("checkoutBtn");
 
 // Initialize with some demo items
 function initializeCart() {
-  cart = [];
+  const restoredCart = loadCartFromStorage();
+  cart = Array.isArray(restoredCart) ? restoredCart : [];
   updateCart();
 }
 
-// Function to open cart
+function saveCartToStorage() {
+  try {
+    const serialized = JSON.stringify(cart);
+    localStorage.setItem(CART_STORAGE_KEY, serialized);
+  } catch (error) {
+    // Silently ignore storage errors
+  }
+}
+
+function loadCartFromStorage() {
+  try {
+    const serialized = localStorage.getItem(CART_STORAGE_KEY);
+    if (!serialized) return [];
+    const parsed = JSON.parse(serialized);
+    if (!Array.isArray(parsed)) return [];
+
+    // Validate and sanitize items
+    return parsed
+      .filter((item) => item && typeof item === "object")
+      .map((item) => ({
+        id: item.id,
+        name: String(item.name || ""),
+        price: Number(item.price) || 0,
+        quantity: Math.max(1, Number(item.quantity) || 1),
+        description: String(item.description || ""),
+        image: String(item.image || ""),
+      }))
+      .filter((item) => item.id !== undefined && item.name && item.price >= 0);
+  } catch (error) {
+    return [];
+  }
+}
+
+// =============================
+// Sidebar open/close controls
+// =============================
 function openCart() {
   cartSidebar.classList.add("active");
   cartOverlay.classList.add("active");
@@ -34,7 +73,10 @@ function closeCart() {
   document.body.style.overflow = "auto";
 }
 
-// Function to add item to cart
+// =============================
+// Cart state mutations
+// - add, remove, quantity updates
+// =============================
 function addToCart(id, name, price, description, image) {
   const existingItem = cart.find((item) => item.id === id);
 
@@ -76,11 +118,14 @@ function updateQuantity(id, change) {
   }
 }
 
-// Function to update cart display
+// =============================
+// Cart UI updates (count, items list, summary)
+// =============================
 function updateCart() {
   updateCartCount();
   renderCartItems();
   updateCartSummary();
+  saveCartToStorage();
 }
 
 // Update cart count
@@ -170,7 +215,9 @@ function updateCartSummary() {
   checkoutBtn.disabled = cart.length === 0;
 }
 
-// Show success message when item is added
+// =============================
+// UX: transient toast for add-to-cart
+// =============================
 function showAddToCartSuccess() {
   // Create a temporary success message
   const message = document.createElement("div");
@@ -206,7 +253,9 @@ function showAddToCartSuccess() {
   }, 3000);
 }
 
-// Event listeners
+// =============================
+// Global event listeners (outside modal)
+// =============================
 cartToggle.addEventListener("click", openCart);
 cartClose.addEventListener("click", closeCart);
 cartOverlay.addEventListener("click", closeCart);
@@ -231,9 +280,15 @@ window.addEventListener("resize", () => {
   }
 });
 
-// Initialize cart with demo items
+// =============================
+// Initialize cart (restore from storage)
+// =============================
 initializeCart();
 
+// =============================
+// Checkout phone modal + validation scope
+// Encapsulated to avoid leaking globals
+// =============================
 (() => {
   // Get modal elements
   const phoneModal = document.getElementById("phoneModal");
@@ -242,7 +297,11 @@ initializeCart();
   const phoneInput = document.getElementById("phoneInput");
   const submitBtn = phoneForm.querySelector('button[type="submit"]');
 
-  // NANP/Canadian number validation helpers
+  // ---------------------------------------------
+  // Phone validation helpers (NANP/Canadian/US)
+  // - normalize to E.164 (+1XXXXXXXXXX)
+  // - pretty format on blur: (AAA) XXX-XXXX
+  // ---------------------------------------------
   const NANP_REGEX = /^(?:\+?1[\s.-]?)?(?:\(?([2-9][0-9]{2})\)?[\s.-]?([2-9][0-9]{2})[\s.-]?([0-9]{4}))$/;
 
   function normalizeToE164(inputValue) {
@@ -277,6 +336,7 @@ initializeCart();
     renderPhoneError(message);
   }
 
+  // Inline error renderer under the input
   function renderPhoneError(message) {
     let errorEl = document.getElementById("phoneError");
     if (!errorEl) {
@@ -290,7 +350,7 @@ initializeCart();
     errorEl.style.display = message ? "block" : "none";
   }
 
-  // Live validation: allow only typical phone chars and validate pattern
+  // Live validation: sanitize characters and validate against NANP
   phoneInput.addEventListener("input", () => {
     // keep allowed characters only
     const allowed = phoneInput.value.replace(/[^0-9+()\-\.\s]/g, "");
@@ -347,7 +407,7 @@ initializeCart();
     }
   });
 
-  // Handle form submission
+  // Handle form submission (validate -> normalize -> proceed)
   phoneForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const phoneNumber = phoneInput.value.trim();
