@@ -1,44 +1,45 @@
 /* Fonts */
 :root {
-  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Amatic SC",  sans-serif;
-  --nav-font: "Inter",  sans-serif;
+  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Amatic SC", sans-serif;
+  --nav-font: "Inter", sans-serif;
 }
 
 /* Global Colors - Updated with brand palette from logo */
-:root { 
+:root {
   --background-color: #ffffff; /* White - clean background */
-  --default-color: #2C0C4A;    /* Deep Purple - main text */
-  --heading-color: #2C0C4A;    /* Deep Purple - headings */
-  --accent-color: #FDCB3D;     /* Golden Yellow - brand accent (buttons, links, highlights) */
-  --surface-color: #ffffff;    /* White - for cards/sections */
-  --contrast-color: #ffffff;   /* White - ensures text is readable on accent/dark bg */
+  --default-color: #2c0c4a; /* Deep Purple - main text */
+  --heading-color: #2c0c4a; /* Deep Purple - headings */
+  --accent-color: #fdcb3d; /* Golden Yellow - brand accent (buttons, links, highlights) */
+  --surface-color: #ffffff; /* White - for cards/sections */
+  --contrast-color: #ffffff; /* White - ensures text is readable on accent/dark bg */
 }
 
 /* Nav Menu Colors - Updated */
 :root {
-  --nav-color: #2C0C4A;              /* Deep Purple - default nav links */
-  --nav-hover-color: #F89728;        /* Bright Orange - hover/active nav links */
+  --nav-color: #2c0c4a; /* Deep Purple - default nav links */
+  --nav-hover-color: #f89728; /* Bright Orange - hover/active nav links */
   --nav-mobile-background-color: #ffffff; /* White background for mobile nav */
   --nav-dropdown-background-color: #ffffff; /* White background for dropdown */
-  --nav-dropdown-color: #2C0C4A;     /* Deep Purple for dropdown links */
-  --nav-dropdown-hover-color: #FDCB3D; /* Golden Yellow - hover state for dropdown */
+  --nav-dropdown-color: #2c0c4a; /* Deep Purple for dropdown links */
+  --nav-dropdown-hover-color: #fdcb3d; /* Golden Yellow - hover state for dropdown */
 }
 
 /* Color Presets - Section Themes */
 .light-background {
   --background-color: #f2f2f2; /* Light gray section background */
-  --surface-color: #ffffff;    /* White cards/surfaces */
+  --surface-color: #ffffff; /* White cards/surfaces */
 }
 
 .dark-background {
-  --background-color: #2C0C4A; /* Deep Purple - dark background */
-  --default-color: #ffffff;    /* White text on dark bg */
-  --heading-color: #FDCB3D;    /* Yellow headings for contrast */
-  --surface-color: #F89728;    /* Orange surfaces for highlight sections */
-  --contrast-color: #ffffff;   /* White contrast text */
+  --background-color: #2c0c4a; /* Deep Purple - dark background */
+  --default-color: #ffffff; /* White text on dark bg */
+  --heading-color: #fdcb3d; /* Yellow headings for contrast */
+  --surface-color: #f89728; /* Orange surfaces for highlight sections */
+  --contrast-color: #ffffff; /* White contrast text */
 }
-
 
 /* Smooth scroll */
 :root {
@@ -80,7 +81,10 @@ h6 {
 .pulsating-play-btn {
   width: 94px;
   height: 94px;
-  background: radial-gradient(var(--accent-color) 50%, color-mix(in srgb, var(--accent-color), transparent 75%) 52%);
+  background: radial-gradient(
+    var(--accent-color) 50%,
+    color-mix(in srgb, var(--accent-color), transparent 75%) 52%
+  );
   border-radius: 50%;
   display: block;
   position: relative;
@@ -297,12 +301,12 @@ h6 {
     position: relative;
   }
 
-  .navmenu>ul>li {
+  .navmenu > ul > li {
     white-space: nowrap;
     padding: 15px 14px;
   }
 
-  .navmenu>ul>li:last-child {
+  .navmenu > ul > li:last-child {
     padding-right: 0;
   }
 
@@ -329,7 +333,7 @@ h6 {
     transition: 0.3s;
   }
 
-  .navmenu>ul>li>a:before {
+  .navmenu > ul > li > a:before {
     content: "";
     position: absolute;
     height: 2px;
@@ -342,13 +346,13 @@ h6 {
   }
 
   .navmenu a:hover:before,
-  .navmenu li:hover>a:before,
+  .navmenu li:hover > a:before,
   .navmenu .active:before {
     visibility: visible;
     width: 100%;
   }
 
-  .navmenu li:hover>a,
+  .navmenu li:hover > a,
   .navmenu .active,
   .navmenu .active:focus {
     color: color-mix(in srgb, var(--nav-color) 80%, black 50%);
@@ -387,11 +391,11 @@ h6 {
 
   .navmenu .dropdown ul a:hover,
   .navmenu .dropdown ul .active:hover,
-  .navmenu .dropdown ul li:hover>a {
+  .navmenu .dropdown ul li:hover > a {
     color: var(--nav-dropdown-hover-color);
   }
 
-  .navmenu .dropdown:hover>ul {
+  .navmenu .dropdown:hover > ul {
     opacity: 1;
     top: 100%;
     visibility: visible;
@@ -403,7 +407,7 @@ h6 {
     visibility: hidden;
   }
 
-  .navmenu .dropdown .dropdown:hover>ul {
+  .navmenu .dropdown .dropdown:hover > ul {
     opacity: 1;
     top: 0;
     left: -100%;
@@ -505,7 +509,7 @@ h6 {
     background-color: rgba(33, 37, 41, 0.1);
   }
 
-  .navmenu .dropdown>.dropdown-active {
+  .navmenu .dropdown > .dropdown-active {
     display: block;
     background-color: rgba(33, 37, 41, 0.03);
   }
@@ -532,7 +536,7 @@ h6 {
     transition: 0.3s;
   }
 
-  .mobile-nav-active .navmenu>ul {
+  .mobile-nav-active .navmenu > ul {
     display: block;
   }
 }
@@ -587,7 +591,8 @@ h6 {
 
 .footer .copyright {
   padding-top: 20px;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  border-top: 1px solid
+    color-mix(in srgb, var(--default-color), transparent 90%);
 }
 
 .footer .copyright p {
@@ -688,7 +693,7 @@ h6 {
   right: 15px;
   bottom: 80px;
   z-index: 99999;
-  background-color: #673AB7;
+  background-color: #673ab7;
   width: 44px;
   height: 44px;
   border-radius: 50px;
@@ -702,7 +707,7 @@ h6 {
 }
 
 .chat-button:hover {
-  background-color: color-mix(in srgb, #673AB7, transparent 20%);
+  background-color: color-mix(in srgb, #673ab7, transparent 20%);
   color: var(--contrast-color);
 }
 
@@ -751,11 +756,11 @@ h6 {
   font-weight: 400;
 }
 
-.page-title .breadcrumbs ol li+li {
+.page-title .breadcrumbs ol li + li {
   padding-left: 10px;
 }
 
-.page-title .breadcrumbs ol li+li::before {
+.page-title .breadcrumbs ol li + li::before {
   content: "/";
   display: inline-block;
   padding-right: 10px;
@@ -775,7 +780,6 @@ section,
 }
 
 @media (max-width: 1199px) {
-
   section,
   .section {
     scroll-margin-top: 56px;
@@ -1122,7 +1126,8 @@ section,
   cursor: pointer;
   height: 100%;
   border: 0;
-  border-bottom: 2px solid color-mix(in srgb, var(--default-color), transparent 80%);
+  border-bottom: 2px solid
+    color-mix(in srgb, var(--default-color), transparent 80%);
 }
 
 @media (max-width: 575px) {
@@ -1382,8 +1387,10 @@ section,
   bottom: -1px;
   height: 100%;
   background-color: var(--surface-color);
-  -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" ...>...</svg>') no-repeat center bottom;
-  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" ...>...</svg>') no-repeat center bottom;  
+  -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" ...>...</svg>')
+    no-repeat center bottom;
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" ...>...</svg>')
+    no-repeat center bottom;
   -webkit-mask-size: contain;
   mask-size: contain;
   z-index: 1;
@@ -1476,40 +1483,44 @@ section,
   }
 }
 
-.book-a-table .php-email-form input[type=text],
-.book-a-table .php-email-form input[type=email],
-.book-a-table .php-email-form input[type=number],
-.book-a-table .php-email-form input[type=date],
-.book-a-table .php-email-form input[type=time],
+.book-a-table .php-email-form input[type="text"],
+.book-a-table .php-email-form input[type="email"],
+.book-a-table .php-email-form input[type="number"],
+.book-a-table .php-email-form input[type="date"],
+.book-a-table .php-email-form input[type="time"],
 .book-a-table .php-email-form textarea {
   font-size: 14px;
   padding: 10px 15px;
   box-shadow: none;
   border-radius: 0;
   color: var(--default-color);
-  background-color: color-mix(in srgb, var(--background-color), transparent 20%);
+  background-color: color-mix(
+    in srgb,
+    var(--background-color),
+    transparent 20%
+  );
   border-color: color-mix(in srgb, var(--default-color), transparent 80%);
 }
 
-.book-a-table .php-email-form input[type=text]:focus,
-.book-a-table .php-email-form input[type=email]:focus,
-.book-a-table .php-email-form input[type=number]:focus,
-.book-a-table .php-email-form input[type=date]:focus,
-.book-a-table .php-email-form input[type=time]:focus,
+.book-a-table .php-email-form input[type="text"]:focus,
+.book-a-table .php-email-form input[type="email"]:focus,
+.book-a-table .php-email-form input[type="number"]:focus,
+.book-a-table .php-email-form input[type="date"]:focus,
+.book-a-table .php-email-form input[type="time"]:focus,
 .book-a-table .php-email-form textarea:focus {
   border-color: var(--accent-color);
 }
 
-.book-a-table .php-email-form input[type=text]::placeholder,
-.book-a-table .php-email-form input[type=email]::placeholder,
-.book-a-table .php-email-form input[type=number]::placeholder,
-.book-a-table .php-email-form input[type=date]::placeholder,
-.book-a-table .php-email-form input[type=time]::placeholder,
+.book-a-table .php-email-form input[type="text"]::placeholder,
+.book-a-table .php-email-form input[type="email"]::placeholder,
+.book-a-table .php-email-form input[type="number"]::placeholder,
+.book-a-table .php-email-form input[type="date"]::placeholder,
+.book-a-table .php-email-form input[type="time"]::placeholder,
 .book-a-table .php-email-form textarea::placeholder {
   color: color-mix(in srgb, var(--default-color), transparent 70%);
 }
 
-.book-a-table .php-email-form button[type=submit] {
+.book-a-table .php-email-form button[type="submit"] {
   color: var(--contrast-color);
   background: var(--accent-color);
   border: 0;
@@ -1518,7 +1529,7 @@ section,
   border-radius: 4px;
 }
 
-.book-a-table .php-email-form button[type=submit]:hover {
+.book-a-table .php-email-form button[type="submit"]:hover {
   background: color-mix(in srgb, var(--accent-color), transparent 20%);
 }
 
@@ -1633,8 +1644,8 @@ section,
   }
 }
 
-.contact .php-email-form input[type=text],
-.contact .php-email-form input[type=email],
+.contact .php-email-form input[type="text"],
+.contact .php-email-form input[type="email"],
 .contact .php-email-form textarea {
   color: var(--default-color);
   background-color: color-mix(in srgb, var(--surface-color), transparent 50%);
@@ -1645,19 +1656,19 @@ section,
   border-radius: 0;
 }
 
-.contact .php-email-form input[type=text]:focus,
-.contact .php-email-form input[type=email]:focus,
+.contact .php-email-form input[type="text"]:focus,
+.contact .php-email-form input[type="email"]:focus,
 .contact .php-email-form textarea:focus {
   border-color: var(--accent-color);
 }
 
-.contact .php-email-form input[type=text]::placeholder,
-.contact .php-email-form input[type=email]::placeholder,
+.contact .php-email-form input[type="text"]::placeholder,
+.contact .php-email-form input[type="email"]::placeholder,
 .contact .php-email-form textarea::placeholder {
   color: color-mix(in srgb, var(--default-color), transparent 70%);
 }
 
-.contact .php-email-form button[type=submit] {
+.contact .php-email-form button[type="submit"] {
   color: var(--contrast-color);
   background: var(--accent-color);
   border: 0;
@@ -1666,7 +1677,7 @@ section,
   border-radius: 50px;
 }
 
-.contact .php-email-form button[type=submit]:hover {
+.contact .php-email-form button[type="submit"]:hover {
   background: color-mix(in srgb, var(--accent-color), transparent 20%);
 }
 
@@ -1678,7 +1689,7 @@ section,
   padding: 5px;
   font-size: 18px;
   font-weight: bold;
-  color: #2C0C4A;
+  color: #2c0c4a;
   cursor: pointer;
   position: relative;
   /* overflow: hidden; */
@@ -1705,23 +1716,25 @@ section,
 }
 
 @keyframes bounce {
-  0%, 100% {
-      transform: translateY(0);
+  0%,
+  100% {
+    transform: translateY(0);
   }
   50% {
-      transform: translateY(-5px);
+    transform: translateY(-5px);
   }
 }
 
 @keyframes swing {
-  0%, 100% {
-      transform: rotate(0deg);
+  0%,
+  100% {
+    transform: rotate(0deg);
   }
   25% {
-      transform: rotate(-10deg);
+    transform: rotate(-10deg);
   }
   75% {
-      transform: rotate(10deg);
+    transform: rotate(10deg);
   }
 }
 
@@ -1735,8 +1748,8 @@ section,
 
 @keyframes ripple {
   100% {
-      transform: scale(4);
-      opacity: 0;
+    transform: scale(4);
+    opacity: 0;
   }
 }
 
@@ -1764,7 +1777,6 @@ section,
       font-size: 20px;
   }
 } */
-
 
 /* Cart Sidebar */
 /* Cart Sidebar Overlay */
@@ -1794,7 +1806,7 @@ section,
   width: 420px;
   height: 100vh;
   background: white;
-  z-index: 2000;
+  z-index: 999999;
   transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   display: flex;
   flex-direction: column;
@@ -1805,9 +1817,8 @@ section,
   right: 0;
 }
 
-
-@media (max-width:575px){
-  .cart-sidebar{
+@media (max-width: 575px) {
+  .cart-sidebar {
     right: -320px;
     width: 320px;
   }
@@ -2055,12 +2066,18 @@ section,
 }
 
 @keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
-/* From Uiverse.io by vinodjangid07 */ 
+/* From Uiverse.io by vinodjangid07 */
 .CartBtn {
   width: 140px;
   height: 40px;
@@ -2071,7 +2088,7 @@ section,
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition-duration: .5s;
+  transition-duration: 0.5s;
   overflow: hidden;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.103);
   position: relative;
@@ -2089,7 +2106,7 @@ section,
   justify-content: center;
   overflow: hidden;
   z-index: 2;
-  transition-duration: .5s;
+  transition-duration: 0.5s;
 }
 
 .CartBtn .icon {
@@ -2105,7 +2122,7 @@ section,
   justify-content: center;
   color: color-mix(in srgb, var(--nav-color) 80%, black 50%);
   z-index: 1;
-  transition-duration: .5s;
+  transition-duration: 0.5s;
   font-size: 1.04em;
   /* font-weight: 600; */
   margin-bottom: 0;
@@ -2114,19 +2131,18 @@ section,
 .CartBtn:hover .IconContainer {
   transform: translateX(58px);
   border-radius: 40px;
-  transition-duration: .5s;
+  transition-duration: 0.5s;
 }
 
 .CartBtn:hover .text {
-  transform: translate(10px,0px);
-  transition-duration: .5s;
+  transform: translate(10px, 0px);
+  transition-duration: 0.5s;
 }
 
 .CartBtn:active {
   transform: scale(0.95);
-  transition-duration: .5s;
+  transition-duration: 0.5s;
 }
-
 
 /* Phone Number Modal */
 /* Modal styles */
@@ -2139,7 +2155,7 @@ section,
   width: 100vw;
   height: 100vh;
   overflow: auto;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   align-items: center;
   justify-content: center;
 }
@@ -2151,7 +2167,7 @@ section,
   border-radius: 12px;
   max-width: 400px;
   width: 90%;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   position: relative;
   text-align: center;
 }
@@ -2184,4 +2200,31 @@ section,
   outline: none;
   border-color: #ff6b35;
   box-shadow: 0 0 5px #ff6b35;
+}
+
+@media (max-width: 576px) {
+  .cart-summary{
+    padding: 1rem 1.5rem;
+  }
+  .summary-row {
+    margin-bottom: 0.5rem;
+    font-size: 13px;
+  }
+  .summary-row.total {
+    font-size: 14px;
+    padding-top: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  .checkout-btn {
+    padding: 0.5rem;
+    border-radius: 6px;
+    font-size: 13px;
+    margin-top: 0.4rem;
+  }
+  .cart-header {
+    padding: 1rem 1.5rem 0.5rem;
+  }
+  .cart-item {
+    padding: 0.5rem 1rem;
+  }
 }
