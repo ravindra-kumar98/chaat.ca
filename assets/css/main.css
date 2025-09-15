@@ -1790,8 +1790,8 @@ section,
 .cart-sidebar {
   position: fixed;
   top: 0;
-  right: -320px;
-  width: 320px;
+  right: -420px;
+  width: 420px;
   height: 100vh;
   background: white;
   z-index: 2000;
@@ -1803,6 +1803,14 @@ section,
 
 .cart-sidebar.active {
   right: 0;
+}
+
+
+@media (max-width:575px){
+  .cart-sidebar{
+    right: -320px;
+    width: 320px;
+  }
 }
 
 /* Cart Header */
